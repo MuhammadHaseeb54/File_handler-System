@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handler</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <!-- Fonts and Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            color: white;
+            background-color: black;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
+        #wrapper {
+            min-height: 100vh; /* 100% of the viewport height */
+            width: 100vw;      /* 100% of the viewport width */
+            text-align: center;
+            padding-top: 100px;
+            box-sizing: border-box;
+        }
+        /* Buttons */
+        .bton {
+            font-weight: 600;
+            font-size: 16px;
+            background: white;
+            color: black;
+            border: transparent;
+            padding: 8px 25px;
+            margin: 10px;
+            transition: transform 0.5s;
+        }
+        .bton:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-8px);
+            cursor: pointer;
+        }
+
+        /* Accessibility */
+        .bton[aria-label]:hover::after {
+            content: attr(aria-label);
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            top: -30px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+    </style>
+
+    <!-- VANTA Effect Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        try {
+            VANTA.NET({
+                el: "#wrapper",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x8919a0,
+                backgroundColor: 0x0,
+                maxDistance: 22.00
+            });
+        } catch (error) {
+            console.error("VANTA effect failed to load:", error);
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <p style="color: white; text-align: center;">
+            JavaScript is disabled in your browser. Please enable it to use the file handler.
+        </p>
+    </noscript>
+
+    <div id="wrapper">
+        <h1 style="font-size: 44px; font-weight: 700;">FILE HANDLER</h1>
+        <p class="heading" style="margin-top: -10px;">using</p>
+        <h1 style="color: #8919a0; font-weight: 700; font-size: 64px; margin-top: -10px;">
+            <i>HUFFMAN CODING</i>
+        </h1>
+
+        <!-- Action Buttons -->
+        <a href="/compress">
+            <button class="bton" aria-label="Compress a file using Huffman Coding">COMPRESS</button>
+        </a>
+        <a href="/decompress">
+            <button class="bton" aria-label="Decompress a file using Huffman Coding">DECOMPRESS</button>
+        </a>
+        <a href="/zip">
+            <button class="bton" aria-label="Create a ZIP file">ZIP</button>
+        </a>
+        <a href="/unzip">
+            <button class="bton" aria-label="Unzip a file">UNZIP</button>
+        </a>
+    </div>
+</body>
+</html>
